@@ -1,0 +1,75 @@
+Key for MPEG7.npz use in Python:
+
+Each shape class has 20 curves; classes are accessed by the first 
+index when calling the data initially (see MPEG_example.pynb).
+
+Each curve is observed at 100 points; all curves in this dataset are
+typically treated as closed, but not saved such that the first point 
+is equivalent to the last point.
+
+Shape-type indices are given below:
+0: bone
+1: comma
+2: half circle
+3: heart
+4: misk
+5: apple
+6: bat
+7: beetle
+8: bell
+9: bird
+10: bottle
+11: brick
+12: butterfly
+13: camel
+14: car
+15: carriage
+16: cattle
+17: cell phone
+18: child
+19: chopper
+20: classic car
+21: crown
+22: cup
+23: deer
+24: flower 5 petals
+25: flower 6 petals
+26: flower 7 petals
+27: four corners
+28: three corners
+29: cross
+30: five corners
+31: flower 10 petals
+32: letter T
+33: circle
+34: dog
+35: elephant
+36: face
+37: fish 1
+38: fish 2
+39: fly
+40: fork
+41: fountain
+42: guitar
+43: hammer
+44: hat
+45: horse
+46: horseshoe
+47: jar
+48: key
+49: lizard
+50: fish 3
+51: octopus
+52: pencil
+53: personal car
+54: pocket
+55: stingray
+56: sea snake
+57: shoe
+58: spoon
+59: spring
+60: teddy bear
+61: tree
+62: truck
+63: turtle
+64: watch
