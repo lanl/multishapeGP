@@ -33,7 +33,7 @@ In our example script and manuscript, we demonstrate that our multiple-output GP
     - **Landmark selection:** Researchers often desire low-dimensional point sets representing the shape of a closed curve (typically known as landmarks). Our model provides an uncertainty-guided approach to estimating landmark locations given curve fits. This estimation can be performed sequentially or simultaneously, based on criterion measuring approximation quality or uncertainty.
     - **Sub-population modeling**: As mentioned above, our model uses coregionalization kernels in the presence of closed curves belonging to multiple classes (with known class labels).
 
-<img src="MOGP_mc1.png" width="300"> <img src="MOGP_mc2.png" width="300"> <img src="MOGP_mc3.png" width="300">
+<img src="MOGP_mc1.png" width="250"> <img src="MOGP_mc2.png" width="250"> <img src="MOGP_mc3.png" width="250">
 
 - **Implementation.** The code ['multishapeGP'] is implemented within Python, primarily requiring the modules [`GPFlow2`](https://github.com/GPflow/GPflow) and [`fdasrsf`](https://github.com/jdtuck/fdasrsf_python).
 
