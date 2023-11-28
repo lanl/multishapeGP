@@ -23,7 +23,7 @@ This code performs multiple-output Gaussian process (GP) fitting for closed curv
     - It is a nonparametric model-based approach, which is robust to modeling assumptions compared to parametric modeling.
     - Furthermore, model-based approaches allow tractable uncertainty quantification (UQ), in contrast to many model-free approaches for curve fitting and statistical shape analysis. Uncertainties can be propagated forward to downstream statistical tasks, which are commonly of interest in statistical shape analysis.
     - The model ensures that the fitted curve is indeed closed, in contrast to standard application of common functional data or spline-based models which do not guarantee curve closure (which we call consistency).
-    - The model also appropriately characterizes the multi-level dependence structure inherent in a collection of closed curves: (1) within-curve dependence between points, (ii) within-curve dependence between x and y-coordinate functions, and (iii) in the presence of multiple curves, between-curve dependence. This allows curve fitting to exploit structural similarities, both within-curve and between-curve, which is particularly important if curves are observed as sparse samples. Furthermore, if curves are divided into multiple classes, we also account for within-class dependence of curves.
+    - The model also appropriately characterizes the multi-level dependence structure inherent in a collection of closed curves: (i) within-curve dependence between points, (ii) within-curve dependence between x and y-coordinate functions, and (iii) in the presence of multiple curves, between-curve dependence. This allows curve fitting to exploit structural similarities, both within-curve and between-curve, which is particularly important if curves are observed as sparse samples. Furthermore, if curves are divided into multiple classes, we also account for within-class dependence of curves.
     
 - **What are some downstream statistical shape analysis tasks that can exploit our multiple-output Gaussian process model?**
 In our example script and manuscript, we demonstrate that our multiple-output GP model for closed-curve fitting has substantial benefits for the following common tasks in statistical shape analysis, with notable performance improvements when curves are fit based on point sets which are sparse and potentially with additive noise.
@@ -41,10 +41,10 @@ In our example script and manuscript, we demonstrate that our multiple-output GP
 
 This repository includes the following Python scripts containing an assortment of functions needed to fit single-output and multiple-output GP models for closed curve data, along with helper functions to perform downstream statistical shape analysis tasks (such as landmarking) as well as to assist in mapping between a curve and its arc-length parameterization:
 
-- ['curveGP.py']: 
-- ['curveGPwithLabel.py']:
-- ['landmarkGP.py']:
-- ['utils.py']:
+- ['curveGP.py']: includes functions to fit single-output and multiple-output GPs to either a single or multiple closed curve realizations, with flexible kernel specification
+- ['curveGPwithLabel.py']: includes functions to fit multiple-output GPs for labeled closed curve realizations, where labels represent sub-populations/classes
+- ['landmarkGP.py']: includes functions to use single-output and multiple-output GP fits for closed curve realizations to perform sequential and simultaneous landmarking
+- ['utils.py']: includes functions to map between curve realizations (as (x,y) coordinates) and its arc-length parameterization
 
 To demonstrate use of these functions, we provide a reproducible Jupyter notebook, ['ArxivFigScript.ipynb'], which is also labeled according to the figures within the pre-print that it generates. This notebook makes use of two publicly available datasets:
 
