@@ -16,7 +16,7 @@ others to do so.
 
 ## **Content**
 
-This is the code repository associated with the research publication "Nonparametric Multi-shape Modeling with Uncertainty Quantification" by [Hengrui Luo](https://hrluo.github.io/) and [Justin D. Strait](https://scholar.google.com/citations?user=amZk5V4AAAAJ&hl=en). The pre-print for this paper can be accessed at (https://arxiv.org/abs/2206.09127).
+This is the code repository associated with the research publication "Nonparametric Multi-shape Modeling with Uncertainty Quantification" by [Hengrui Luo](https://hrluo.github.io/) and [Justin D. Strait](https://scholar.google.com/citations?user=amZk5V4AAAAJ&hl=en). The pre-print for this paper can be accessed [here](https://arxiv.org/abs/2206.09127).
 
 - **What does this code do?**
 This code performs multiple-output Gaussian process (GP) fitting for closed curve datasets. The model assumes that each closed curve (including the case of a single curve) is realized as a collection of points, assumed to be drawn from its own unknown, underlying closed curve; the GP model is used to estimate each curve (in $\mathbb{R}^d$, with primary focus on $d=2$), both in terms of a mean function attached with corresponding pointwise uncertainties. Our code is capable of fitting smooth closed curves for point sets that are noisy or assumed noise-free, as well as sparse or dense (high-dimensional) number of points. Default options produce smooth fits, with numerous user-specified options capable of modifying the GP kernel to achieve the desired curve smoothness. The code is also capable of fitting closed curves coming from multiple classes (e.g., point sets representing the outlines of different leaf types).
@@ -35,23 +35,23 @@ In our example script and manuscript, we demonstrate that our multiple-output GP
     - **Landmark selection:** Researchers often desire low-dimensional point sets representing the shape of a closed curve (typically known as landmarks). Our model provides an uncertainty-guided approach to estimating landmark locations given curve fits. This estimation can be performed sequentially or simultaneously, based on criterion measuring approximation quality or uncertainty.
     - **Sub-population modeling**: As mentioned above, our model uses coregionalization kernels in the presence of closed curves belonging to multiple classes (with known class labels).
 
-- **Implementation.** The code ['multishapeGP'] is implemented within Python, primarily requiring the modules [`GPFlow2`](https://github.com/GPflow/GPflow) and [`fdasrsf`](https://github.com/jdtuck/fdasrsf_python).
+- **Implementation.** The code `multishapeGP` is implemented within Python, primarily requiring the modules [`GPFlow2`](https://github.com/GPflow/GPflow) and [`fdasrsf`](https://github.com/jdtuck/fdasrsf_python).
 
 ## **Usage**
 
 This repository includes the following Python scripts containing an assortment of functions needed to fit single-output and multiple-output GP models for closed curve data, along with helper functions to perform downstream statistical shape analysis tasks (such as landmarking) as well as to assist in mapping between a curve and its arc-length parameterization:
 
-- ['curveGP.py']: includes functions to fit single-output and multiple-output GPs to either a single or multiple closed curve realizations, with flexible kernel specification
-- ['curveGPwithLabel.py']: includes functions to fit multiple-output GPs for labeled closed curve realizations, where labels represent sub-populations/classes
-- ['landmarkGP.py']: includes functions to use single-output and multiple-output GP fits for closed curve realizations to perform sequential and simultaneous landmarking
-- ['utils.py']: includes functions to map between curve realizations (as (x,y) coordinates) and its arc-length parameterization
+- `curveGP.py`: includes functions to fit single-output and multiple-output GPs to either a single or multiple closed curve realizations, with flexible kernel specification
+- `curveGPwithLabel.py`: includes functions to fit multiple-output GPs for labeled closed curve realizations, where labels represent sub-populations/classes
+- `landmarkGP.py`: includes functions to use single-output and multiple-output GP fits for closed curve realizations to perform sequential and simultaneous landmarking
+- `utils.py`: includes functions to map between curve realizations (as (x,y) coordinates) and its arc-length parameterization
 
-To demonstrate use of these functions, we provide a reproducible Jupyter notebook, ['ArxivFigScript.ipynb'], which is also labeled according to the figures within the pre-print that it generates. This notebook makes use of two publicly available datasets:
+To demonstrate use of these functions, we provide a reproducible Jupyter notebook, `ArxivFigScript.ipynb`, which is also labeled according to the figures within the pre-print that it generates. This notebook makes use of two publicly available datasets:
 
-- **MPEG-7 shape dataset:** available at https://dabi.temple.edu/external/shape/MPEG7/dataset.html, this dataset is provided as closed curve boundaries for various classes of objects extracted from binary images. We include the closed curves in the zipped .npz file ['MPEG7.npz'], with class label identifiers given in ['MPEG_key.txt'].
-- **Flavia leaf daataset:** available at https://flavia.sourceforge.net/, this dataset is provided as closed curve boundaries for various classes of plant leaves extracted from their corresponding images. We include the closed curves in the zipped .npz file ['flavia_custom.npz'].
+- **MPEG-7 shape dataset:** available at https://dabi.temple.edu/external/shape/MPEG7/dataset.html, this dataset is provided as closed curve boundaries for various classes of objects extracted from binary images. We include the closed curves in the zipped .npz file `MPEG7.npz`, with class label identifiers given in `MPEG_key.txt`.
+- **Flavia leaf daataset:** available at https://flavia.sourceforge.net/, this dataset is provided as closed curve boundaries for various classes of plant leaves extracted from their corresponding images. We include the closed curves in the zipped .npz file `flavia_custom.npz`.
 
-There are three .pkl files included, which are based on saved simulations from the Jupyter notebook: ['lmk_sim.pkl'], ['hyp_list.pkl'], ['hyp_listn.pkl']. These can be generated from running the corresponding cells in the notebook, or directly loaded if interested in saving time (as these simulations are computationally intensive).
+There are three .pkl files included, which are based on saved simulations from the Jupyter notebook: `lmk_sim.pkl`, `hyp_list.pkl`, `hyp_listn.pkl`. These can be generated from running the corresponding cells in the notebook, or directly loaded if interested in saving time (as these simulations are computationally intensive).
 
 ## **References**
 
